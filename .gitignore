@@ -1,0 +1,6 @@
+debhelper-build-stamp
+*.debhelper
+*.substvars
+*.log
+files
+odroid-wiringpi-python/
