@@ -1,0 +1,12 @@
+Source: odroid-wiringpi-python
+Section: utils
+Priority: optional
+Maintainer: Yang Deokgyu <secugyu@gmail.com>
+Build-Depends: debhelper (>= 10)
+Standards-Version: 4.1.2
+Homepage: https://github.com/awesometic/odroid-wiringpi-python
+
+Package: odroid-wiringpi-python
+Architecture: all
+Depends: ${misc:Depends}
+Description: A debian package for automatically updating of WiringPi Python PyPI package.

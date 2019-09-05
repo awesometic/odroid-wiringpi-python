@@ -1,0 +1,9 @@
+Package: odroid-wiringpi-python
+Version: 0.1-1
+Architecture: all
+Maintainer: Yang Deokgyu <secugyu@gmail.com>
+Installed-Size: 11
+Section: utils
+Priority: optional
+Homepage: https://github.com/awesometic/odroid-wiringpi-python
+Description: A debian package for automatically updating of WiringPi Python PyPI package.
