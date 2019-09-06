@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -e
+
+[ -x $(command -v odroid-wiringpi-python) ] && odroid-wiringpi-python --install

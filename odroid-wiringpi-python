@@ -1,3 +1,98 @@
-#!/bin/sh
+#!/bin/bash
 
-echo "Hello world from odroid-wiringpi-python"
+VERSION="0.1"
+HOMEPAGE="https://github.com/awesometic/odroid-wiringpi-python"
+
+function msg() {
+    echo -e "$1"
+}
+
+function am_i_root {
+    ! (( ${EUID:-0} || $(id -u) ))
+}
+
+function check_pip_module_installed() {
+    py_cmd="import pkgutil; print(True if pkgutil.find_loader("\"odroid-wiringpi\"") else False)"
+    $("$1" -c "'$py_cmd'")
+}
+
+function pip_module_install() {
+    "$1" -m pip install --user odroid-wiringpi "$2"
+}
+
+function opt_version() {
+    msg "odroid-wiringpi-python package by Yang Deokgyu <secugyu@gmail.com>
+This package is a helper for management of odroid-wiringpi PyPI package.
+
+Version: $VERSION
+Github: $HOMEPAGE"
+}
+
+function opt_help() {
+    msg "odroid-wiringpi-python $VERSION ($HOMEPAGE)
+Usage: odroid-wiringpi-python {OPTION}
+
+Options:
+--version: Shows its short description and version
+--install: Install odroid-wiringpi PyPI package onto your system. If Python/Python3 and pip/pip3 are not installed, this does nothing.
+--help: Shows this message.
+"
+}
+
+function opt_install() {
+    pip_installed=false
+    pip3_installed=false
+
+    [ "$(command -v python pip | wc -l)" -eq 2 ] && pip_installed=true
+    [ "$(command -v python3 pip3 | wc -l)" -eq 2 ] && pip3_installed=true
+
+    if ! "$pip_installed" && ! "$pip3_installed"; then
+        msg "pip/pip3 not found on the system.
+
+Install Python/Python3 and pip/pip3 first and enter the following command.
+\tapt update && apt install python python3 python-pip python3-pip
+\todroid-wiringpi-python --install"
+
+        exit 0
+    fi
+
+    if "$pip_installed"; then
+        if check_pip_module_installed "python"; then
+            pip_module_install "python" "--upgrade"
+        else
+            pip_module_install "python"
+        fi
+    fi
+
+    if "$pip3_installed"; then
+        if check_pip_module_installed "python3"; then
+            pip_module_install "python3" "--upgrade"
+        else
+            pip_module_install "python3"
+        fi
+    fi
+}
+
+if ! am_i_root; then
+    msg "Please run this script with root permission.
+\tsudo odroid-wiringpi-python"
+
+    exit 0
+else
+    if [ -n "$1" ]; then
+        if [ "$1" = "--version" ]; then
+            opt_version
+        elif [ "$1" = "--help" ]; then
+            opt_help
+        elif [ "$1" = "--install" ]; then
+            opt_install
+        else
+            msg "Option $1 is unavailable.\n"
+            opt_help
+        fi
+    else
+        opt_help
+    fi
+fi
+
+exit 0
