@@ -7,6 +7,7 @@ Standards-Version: 4.1.2
 Homepage: https://github.com/awesometic/odroid-wiringpi-python
 
 Package: odroid-wiringpi-python
-Architecture: all
+Architecture: armhf arm64
 Depends: ${misc:Depends}
 Description: A debian package for automatically updating of WiringPi Python PyPI package.
+
