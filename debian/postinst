@@ -2,4 +2,6 @@
 
 set -e
 
-[ -x $(command -v odroid-wiringpi-python) ] && odroid-wiringpi-python --install
+[ -x "$(command -v odroid-wiringpi-python)" ] && odroid-wiringpi-python --install
+
+#DEBHELPER#
