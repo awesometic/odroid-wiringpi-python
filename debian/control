@@ -8,6 +8,6 @@ Homepage: https://github.com/awesometic/odroid-wiringpi-python
 
 Package: odroid-wiringpi-python
 Architecture: armhf arm64
-Depends: ${misc:Depends}
+Depends: python3, python3-pip, ${misc:Depends}
 Description: A debian package for automatically updating of WiringPi Python PyPI package.
 
