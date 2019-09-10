@@ -1,3 +1,9 @@
+odroid-wiringpi-python (0.2) bionic; urgency=medium
+
+  * Add dependency packages; python3 python3-pip
+
+ -- Yang Deokgyu <secugyu@gmail.com>  Tue, 10 Sep 2019 11:14:11 +0900
+
 odroid-wiringpi-python (0.1-2ubuntu1) bionic; urgency=medium
 
   * Correct target architecture
