@@ -1,3 +1,9 @@
+odroid-wiringpi-python (0.2.2) bionic; urgency=medium
+
+  * Correct sudo check procedure
+
+ -- Yang Deokgyu <secugyu@gmail.com>  Tue, 10 Sep 2019 14:05:25 +0900
+
 odroid-wiringpi-python (0.2.1) bionic; urgency=medium
 
   * Make package installed for all users
