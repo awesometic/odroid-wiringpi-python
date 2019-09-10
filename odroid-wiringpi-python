@@ -73,26 +73,25 @@ Install Python/Python3 and pip/pip3 first and enter the following command.
     fi
 }
 
-if ! am_i_root; then
-    msg "Please run this script with root permission.
-\tsudo odroid-wiringpi-python"
-
-    exit 0
-else
-    if [ -n "$1" ]; then
-        if [ "$1" = "--version" ]; then
-            opt_version
-        elif [ "$1" = "--help" ]; then
-            opt_help
-        elif [ "$1" = "--install" ]; then
+if [ -n "$1" ]; then
+    if [ "$1" = "--version" ]; then
+        opt_version
+    elif [ "$1" = "--help" ]; then
+        opt_help
+    elif [ "$1" = "--install" ]; then
+        if am_i_root; then
             opt_install
         else
-            msg "Option $1 is unavailable.\n"
-            opt_help
+            msg "Please run this script with root permission.
+\tsudo odroid-wiringpi-python"
+
+            exit 0
         fi
     else
+        msg "Option $1 is unavailable.\n"
         opt_help
     fi
+else
+    opt_help
 fi
 
-exit 0
