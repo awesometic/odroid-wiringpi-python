@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="0.2"
+VERSION="0.2.1"
 HOMEPAGE="https://github.com/awesometic/odroid-wiringpi-python"
 
 function msg() {
