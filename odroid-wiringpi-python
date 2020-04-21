@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="0.2.2"
+VERSION="0.2.3"
 HOMEPAGE="https://github.com/awesometic/odroid-wiringpi-python"
 
 function msg() {
@@ -21,7 +21,7 @@ function pip_module_install() {
 }
 
 function opt_version() {
-    msg "odroid-wiringpi-python package by Yang Deokgyu <secugyu@gmail.com>
+    msg "odroid-wiringpi-python package by Deokgyu Yang <secugyu@gmail.com>
 This package is a helper for management of odroid-wiringpi PyPI package.
 
 Version: $VERSION
