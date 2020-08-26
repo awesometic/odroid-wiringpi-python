@@ -1,3 +1,9 @@
+odroid-wiringpi-python (0.2.7) stable; urgency=medium
+
+  * Update version to trigger package update
+
+ -- Deokgyu Yang <secugyu@gmail.com>  Wed, 26 Aug 2020 09:58:02 +0900
+
 odroid-wiringpi-python (0.2.6) stable; urgency=medium
 
   * Update version to trigger package update
